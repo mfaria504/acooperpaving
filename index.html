@@ -401,41 +401,45 @@ h2 {
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6)}
 
 .service-card {
-  background:white; border-radius:var(--radius-lg); padding:var(--space-8);
-  border:1px solid rgba(27,79,190,0.065);
-  box-shadow:var(--shadow-sm);
-  transition:transform 400ms var(--spring), box-shadow 400ms var(--spring), border-color 280ms ease;
-  position:relative; overflow:hidden; cursor:default;
+  background: white; border-radius: var(--radius-lg);
+  border: 1px solid rgba(27,79,190,0.07);
+  box-shadow: var(--shadow-sm);
+  transition: transform 400ms var(--spring), box-shadow 400ms var(--spring), border-color 280ms ease;
+  position: relative; overflow: hidden; cursor: default;
 }
-/* Accent reveal bar */
-.service-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2.5px;
-  background:linear-gradient(90deg,var(--brand-primary),var(--brand-accent));
-  transform:scaleX(0); transform-origin:left;
-  transition:transform 400ms var(--spring);
-}
-/* Noise texture on card surface for tactility */
-.service-card::after {
-  content:''; position:absolute; inset:0;
-  background-image:var(--noise); background-size:96px 96px;
-  opacity:0.016; mix-blend-mode:overlay; pointer-events:none;
-  border-radius:var(--radius-lg);
-}
-.service-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:var(--shadow-lg);border-color:rgba(27,79,190,0.14)}
-.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: var(--shadow-lg); border-color: rgba(27,79,190,0.14); }
 
-.service-icon {
-  width:52px; height:52px; background:rgba(27,79,190,0.07);
-  border-radius:var(--radius-md);
-  display:flex; align-items:center; justify-content:center;
-  font-size:22px; margin-bottom:var(--space-5);
-  /* optical nudge */
-  padding-bottom:1px;
-  transition:background 300ms ease, transform 400ms var(--spring);
+/* Accent reveal bar at top */
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 400ms var(--spring);
 }
-.service-card:hover .service-icon{background:rgba(27,79,190,0.12);transform:scale(1.08) rotate(-2deg)}
-.service-title{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-0.026em;margin-bottom:var(--space-3);color:var(--text-primary);line-height:1.2}
-.service-desc{font-size:14px;color:var(--text-secondary);line-height:1.65;max-width:40ch;opacity:.85}
+.service-card:hover::before { transform: scaleX(1); }
+
+/* Photo container */
+.service-photo {
+  width: 100%; height: 196px;
+  position: relative; overflow: hidden; display: block;
+}
+.service-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 600ms var(--ease-out);
+}
+.service-card:hover .service-photo img { transform: scale(1.06); }
+
+/* Fade photo into white */
+.service-photo::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 65%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.55) 50%, white 100%);
+  pointer-events: none;
+}
+
+/* Text content */
+.service-body { padding: var(--space-4) var(--space-6) var(--space-7); }
+.service-title { font-family: var(--font-display); font-size: 19px; font-weight: 600; letter-spacing: -0.026em; margin-bottom: var(--space-3); color: var(--text-primary); line-height: 1.2; }
+.service-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; opacity: .85; }
 
 /* ═══════════════════════════════════════════════
    WHY US — dark band, asymmetric grid
@@ -914,12 +918,60 @@ footer::after{content:'';position:absolute;inset:0;background-image:var(--noise)
     <p class="section-sub reveal">From residential driveways to large commercial lots and public roadways — we bring the same craftsmanship to every job across New England.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card"><div class="service-icon">🏠</div><div class="service-title">Residential Driveways</div><p class="service-desc">New installations, full replacements, and extensions. Clean edges, smooth finish, and lasting curb appeal for your home.</p></div>
-    <div class="service-card"><div class="service-icon">🏢</div><div class="service-title">Commercial Lots & Roadways</div><p class="service-desc">Large-scale paving, resurfacing, and new construction for businesses, retail centers, industrial facilities, and public entities.</p></div>
-    <div class="service-card"><div class="service-icon">🔧</div><div class="service-title">Asphalt Repair & Patching</div><p class="service-desc">Potholes, cracks, and surface deterioration resolved quickly — restoring safety and extending the life of your pavement.</p></div>
-    <div class="service-card"><div class="service-icon">🛡️</div><div class="service-title">Sealcoating</div><p class="service-desc">Professional-grade sealcoating shields your asphalt from UV rays, water intrusion, and daily wear — reducing long-term costs.</p></div>
-    <div class="service-card"><div class="service-icon">🪨</div><div class="service-title">Cobblestone & Custom Edging</div><p class="service-desc">Granite cobblestone borders and decorative edging to enhance your asphalt's appeal and define clean, polished boundaries.</p></div>
-    <div class="service-card"><div class="service-icon">📐</div><div class="service-title">Line Striping & ADA Markings</div><p class="service-desc">Regulation-compliant line markings for commercial properties — ADA stalls, fire lanes, directional arrows, and more.</p></div>
+    <div class="service-card">
+      <div class="service-photo">
+        <img src="https://images.squarespace-cdn.com/content/v1/5e4fe5c3b306ce3acf2f2066/1617989094607-GLQZV1FWMGCFQXH9V5VJ/Residential+Asphalt+Driveways.jpg" alt="Residential driveway paving" loading="lazy">
+      </div>
+      <div class="service-body">
+        <div class="service-title">Residential Driveways</div>
+        <p class="service-desc">New installations, full replacements, and extensions. Clean edges, smooth finish, and lasting curb appeal for your home.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-photo">
+        <img src="https://metropaving.ca/wp-content/uploads/2023/04/Commercial-Asphalt-Paving.jpg" alt="Commercial parking lot paving" loading="lazy">
+      </div>
+      <div class="service-body">
+        <div class="service-title">Commercial Lots & Roadways</div>
+        <p class="service-desc">Large-scale paving, resurfacing, and new construction for businesses, retail centers, industrial facilities, and public entities.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-photo">
+        <img src="https://pavementsolutions.com/wp-content/uploads/2021/03/infrared-asphalt-repair.jpg" alt="Asphalt repair and patching" loading="lazy">
+      </div>
+      <div class="service-body">
+        <div class="service-title">Asphalt Repair & Patching</div>
+        <p class="service-desc">Potholes, cracks, and surface deterioration resolved quickly — restoring safety and extending the life of your pavement.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-photo">
+        <img src="https://libertyblacktop.com/wp-content/uploads/2020/06/sealcoating-driveway.jpg" alt="Driveway sealcoating" loading="lazy">
+      </div>
+      <div class="service-body">
+        <div class="service-title">Sealcoating</div>
+        <p class="service-desc">Professional-grade sealcoating shields your asphalt from UV rays, water intrusion, and daily wear — reducing long-term costs.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-photo">
+        <img src="https://www.asphaltpavinginstallers.com/wp-content/uploads/2019/07/asphalt-driveway-border.jpg" alt="Cobblestone edging and borders" loading="lazy">
+      </div>
+      <div class="service-body">
+        <div class="service-title">Cobblestone & Custom Edging</div>
+        <p class="service-desc">Granite cobblestone borders and decorative edging to enhance your asphalt's appeal and define clean, polished boundaries.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-photo">
+        <img src="https://mountainviewlinestriping.com/wp-content/uploads/2021/06/parking-lot-striping.jpg" alt="Parking lot line striping" loading="lazy">
+      </div>
+      <div class="service-body">
+        <div class="service-title">Line Striping & ADA Markings</div>
+        <p class="service-desc">Regulation-compliant line markings for commercial properties — ADA stalls, fire lanes, directional arrows, and more.</p>
+      </div>
+    </div>
   </div>
 </section>
 
