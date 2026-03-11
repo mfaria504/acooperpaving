@@ -839,29 +839,27 @@ footer::after{content:'';position:absolute;inset:0;background-image:var(--noise)
     <svg class="nav-logo-mark" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="lg-bg" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#102D6B"/>
+          <stop offset="0%" stop-color="#0D2870"/>
           <stop offset="100%" stop-color="#1B4FBE"/>
         </linearGradient>
-        <linearGradient id="lg-road" x1="22" y1="10" x2="22" y2="38" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#D4AF6A" stop-opacity="0.9"/>
-          <stop offset="100%" stop-color="#B8912A" stop-opacity="0.6"/>
+        <linearGradient id="lg-gold" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#E8C97A"/>
+          <stop offset="100%" stop-color="#C49A38"/>
         </linearGradient>
       </defs>
-      <!-- Base plate — slightly rounded square -->
-      <rect width="44" height="44" rx="10" fill="url(#lg-bg)"/>
-      <!-- Subtle inner border for depth -->
-      <rect x="0.75" y="0.75" width="42.5" height="42.5" rx="9.4" stroke="rgba(255,255,255,0.10)" stroke-width="1.5" fill="none"/>
-      <!-- Road perspective trapezoid — converging to vanishing point -->
-      <path d="M8 37 L17.5 13 L26.5 13 L36 37 Z" fill="rgba(255,255,255,0.05)"/>
-      <!-- Road surface — inner, brighter band -->
-      <path d="M14 37 L19.5 16 L24.5 16 L30 37 Z" fill="rgba(255,255,255,0.07)"/>
-      <!-- Gold center-line dashes — road divider -->
-      <rect x="21.25" y="17" width="1.5" height="4" rx="0.75" fill="url(#lg-road)"/>
-      <rect x="21.25" y="23" width="1.5" height="4" rx="0.75" fill="url(#lg-road)" opacity="0.8"/>
-      <rect x="21.25" y="29" width="1.5" height="4" rx="0.75" fill="url(#lg-road)" opacity="0.55"/>
-      <!-- "AC" set in clean letterforms, gold — sits over the road shape -->
-      <text x="10" y="36" font-family="'Georgia', 'Times New Roman', serif" font-size="11" font-weight="700" fill="#D4AF6A" letter-spacing="-0.3" opacity="0.95">A.</text>
-      <text x="26" y="36" font-family="'Georgia', 'Times New Roman', serif" font-size="11" font-weight="700" fill="rgba(255,255,255,0.75)" letter-spacing="0">C</text>
+      <!-- Base -->
+      <rect width="44" height="44" rx="9" fill="url(#lg-bg)"/>
+      <!-- Road surface — trapezoid fading from bottom -->
+      <path d="M10 40 L19 18 L25 18 L34 40 Z" fill="rgba(255,255,255,0.055)"/>
+      <!-- Road center stripe — three dashes, gold, fading to horizon -->
+      <rect x="21.25" y="19" width="1.5" height="5" rx="0.75" fill="#D4AF6A" opacity="0.85"/>
+      <rect x="21.25" y="26" width="1.5" height="4" rx="0.75" fill="#D4AF6A" opacity="0.55"/>
+      <rect x="21.25" y="32" width="1.5" height="3" rx="0.75" fill="#D4AF6A" opacity="0.3"/>
+      <!-- Horizon line — thin gold rule -->
+      <line x1="9" y1="18" x2="35" y2="18" stroke="#D4AF6A" stroke-width="0.75" opacity="0.35"/>
+      <!-- Monogram — "A" left, "C" right, bracketing the road -->
+      <text x="7" y="38" font-family="'Georgia', 'Times New Roman', serif" font-size="15" font-weight="700" fill="#D4AF6A" opacity="0.95">A</text>
+      <text x="28" y="38" font-family="'Georgia', 'Times New Roman', serif" font-size="15" font-weight="700" fill="rgba(255,255,255,0.80)">C</text>
     </svg>
     <div class="nav-logo-text">
       <span class="nav-logo-name">A. Cooper Paving</span>
@@ -1140,23 +1138,18 @@ footer::after{content:'';position:absolute;inset:0;background-image:var(--noise)
         <svg class="footer-logo-mark" width="38" height="38" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="lg-bg-f" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#102D6B"/>
+              <stop offset="0%" stop-color="#0D2870"/>
               <stop offset="100%" stop-color="#1B4FBE"/>
             </linearGradient>
-            <linearGradient id="lg-road-f" x1="22" y1="10" x2="22" y2="38" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#D4AF6A" stop-opacity="0.9"/>
-              <stop offset="100%" stop-color="#B8912A" stop-opacity="0.6"/>
-            </linearGradient>
           </defs>
-          <rect width="44" height="44" rx="10" fill="url(#lg-bg-f)"/>
-          <rect x="0.75" y="0.75" width="42.5" height="42.5" rx="9.4" stroke="rgba(255,255,255,0.10)" stroke-width="1.5" fill="none"/>
-          <path d="M8 37 L17.5 13 L26.5 13 L36 37 Z" fill="rgba(255,255,255,0.05)"/>
-          <path d="M14 37 L19.5 16 L24.5 16 L30 37 Z" fill="rgba(255,255,255,0.07)"/>
-          <rect x="21.25" y="17" width="1.5" height="4" rx="0.75" fill="url(#lg-road-f)"/>
-          <rect x="21.25" y="23" width="1.5" height="4" rx="0.75" fill="url(#lg-road-f)" opacity="0.8"/>
-          <rect x="21.25" y="29" width="1.5" height="4" rx="0.75" fill="url(#lg-road-f)" opacity="0.55"/>
-          <text x="10" y="36" font-family="'Georgia', 'Times New Roman', serif" font-size="11" font-weight="700" fill="#D4AF6A" letter-spacing="-0.3" opacity="0.95">A.</text>
-          <text x="26" y="36" font-family="'Georgia', 'Times New Roman', serif" font-size="11" font-weight="700" fill="rgba(255,255,255,0.75)">C</text>
+          <rect width="44" height="44" rx="9" fill="url(#lg-bg-f)"/>
+          <path d="M10 40 L19 18 L25 18 L34 40 Z" fill="rgba(255,255,255,0.055)"/>
+          <rect x="21.25" y="19" width="1.5" height="5" rx="0.75" fill="#D4AF6A" opacity="0.85"/>
+          <rect x="21.25" y="26" width="1.5" height="4" rx="0.75" fill="#D4AF6A" opacity="0.55"/>
+          <rect x="21.25" y="32" width="1.5" height="3" rx="0.75" fill="#D4AF6A" opacity="0.3"/>
+          <line x1="9" y1="18" x2="35" y2="18" stroke="#D4AF6A" stroke-width="0.75" opacity="0.35"/>
+          <text x="7" y="38" font-family="'Georgia', 'Times New Roman', serif" font-size="15" font-weight="700" fill="#D4AF6A" opacity="0.95">A</text>
+          <text x="28" y="38" font-family="'Georgia', 'Times New Roman', serif" font-size="15" font-weight="700" fill="rgba(255,255,255,0.80)">C</text>
         </svg>
         <span class="footer-logo-name">A. Cooper Paving</span>
       </div>
