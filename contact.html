@@ -204,52 +204,6 @@ nav {
 
 .form-wrap { position: relative; z-index: 1; max-width: 480px; }
 
-/* ── HubSpot form — pre-emptive overrides before HS stylesheet loads ── */
-#hs-form-container fieldset {
-  max-width: 100% !important;
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 0 4px !important;
-}
-#hs-form-container * { box-sizing: border-box; }
-
-/* Kill HubSpot's default black borders on all inputs */
-#hs-form-container input[type=text],
-#hs-form-container input[type=email],
-#hs-form-container input[type=tel],
-#hs-form-container input[type=number],
-#hs-form-container input[type=phone],
-#hs-form-container textarea,
-#hs-form-container select {
-  border: 1.5px solid rgba(27,79,190,0.14) !important;
-  outline: none !important;
-  box-shadow: none !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-  border-radius: 10px !important;
-  background: #F4F7FF !important;
-  color: #080F2E !important;
-}
-#hs-form-container input[type=text]:focus,
-#hs-form-container input[type=email]:focus,
-#hs-form-container input[type=tel]:focus,
-#hs-form-container input[type=number]:focus,
-#hs-form-container textarea:focus,
-#hs-form-container select:focus {
-  border-color: rgba(212,175,106,0.80) !important;
-  box-shadow: 0 0 0 3px rgba(212,175,106,0.20) !important;
-  outline: none !important;
-  background: #fff !important;
-}
-/* Kill any HubSpot wrapper borders */
-#hs-form-container .hs-input,
-#hs-form-container .input {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-}
-
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .page { grid-template-columns: 1fr; }
@@ -326,7 +280,6 @@ nav {
       <p>Residential driveway, commercial lot, repairs, or sealcoating — we handle it all across Massachusetts.</p>
     </div>
     <div class="form-wrap">
-      <div id="hs-form-container"></div>
     </div>
   </div>
 
@@ -335,39 +288,11 @@ nav {
 <!-- HubSpot -->
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 <script>
-window.addEventListener('load', function() {
   hbspt.forms.create({
     portalId: "48683003",
     formId: "8504bb4c-c505-440c-8991-2dac67de6337",
-    region: "na1",
-    target: "#hs-form-container",
-    cssRequired: "",
-    css: "",
-    onFormReady: function() {
-      var s = document.createElement('style');
-      s.textContent = [
-        '#hs-form-container label{display:block;font-family:"Switzer",sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}',
-        '#hs-form-container input[type=text],#hs-form-container input[type=email],#hs-form-container input[type=tel],#hs-form-container input[type=number],#hs-form-container textarea,#hs-form-container select{display:block;width:100%;background:#F4F7FF!important;border:1.5px solid rgba(27,79,190,0.14)!important;border-radius:10px!important;padding:12px 16px;font-family:"Switzer",sans-serif;font-size:14px;color:#080F2E;outline:none!important;box-sizing:border-box;transition:border-color 220ms ease,background 220ms ease,box-shadow 220ms ease;-webkit-appearance:none;appearance:none}',
-        '#hs-form-container input::placeholder,#hs-form-container textarea::placeholder{color:#7A8FC4}',
-        '#hs-form-container input:focus,#hs-form-container textarea:focus,#hs-form-container select:focus{border-color:rgba(212,175,106,0.80)!important;background:#fff!important;box-shadow:0 0 0 3px rgba(212,175,106,0.20)!important;outline:none!important}',
-        '#hs-form-container textarea{min-height:90px;resize:vertical}',
-        '#hs-form-container fieldset{max-width:100%!important;border:0!important;padding:0!important;margin:0 0 16px!important;display:block!important}',
-        '#hs-form-container .hs-form-field{margin-bottom:14px}',
-        '#hs-form-container fieldset.form-columns-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}',
-        '#hs-form-container fieldset.form-columns-2 .hs-form-field{margin-bottom:0}',
-        '#hs-form-container input[type=submit]{display:block;width:100%;background:#1B4FBE;color:#fff;font-family:"Switzer",sans-serif;font-size:15px;font-weight:700;letter-spacing:-0.02em;border:none;border-radius:40px;padding:16px 32px;cursor:pointer;margin-top:20px;box-sizing:border-box;transition:transform 300ms cubic-bezier(.34,1.56,.64,1),box-shadow 300ms ease;box-shadow:0 8px 28px rgba(27,79,190,0.35),0 2px 8px rgba(27,79,190,0.18)}',
-        '#hs-form-container input[type=submit]:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 18px 44px rgba(27,79,190,0.45),0 4px 12px rgba(27,79,190,0.22)}',
-        '#hs-form-container input[type=submit]:active{transform:scale(0.97)}',
-        '#hs-form-container .hs-error-msgs{list-style:none;margin-top:4px;padding:0}',
-        '#hs-form-container .hs-error-msgs label{color:#e05252;font-size:11px;text-transform:none;letter-spacing:0;font-weight:500}',
-        '#hs-form-container .hs-richtext,#hs-form-container .hs-richtext p{font-family:"Switzer",sans-serif;font-size:11px;color:#7A8FC4;line-height:1.6;text-transform:none;letter-spacing:0;font-weight:400}',
-        '#hs-form-container .submitted-message{font-family:"Switzer",sans-serif;font-size:16px;color:#1B4FBE;text-align:center;padding:40px 16px;font-weight:600;line-height:1.5}',
-        '#hs-form-container .hs-form-booleancheckbox-display{display:flex;align-items:flex-start;gap:10px}',
-      ].join('');
-      document.head.appendChild(s);
-    }
+    region: "na1"
   });
-});
 </script>
 
 </body>
