@@ -129,16 +129,16 @@ nav {
   position:fixed; top:40px; left:0; right:0; z-index:100;
   padding:14px var(--space-8);
   display:flex; align-items:center; justify-content:space-between;
-  /* Elite glassmorphism: saturate() is the secret */
-  background:rgba(255,255,255,0.72);
+  background: transparent;
+  border-bottom:1px solid transparent;
+  transition:top 300ms var(--ease-out), box-shadow 300ms ease, background 400ms ease, border-color 400ms ease;
+}
+nav.scrolled {
+  background:rgba(255,255,255,0.88);
   backdrop-filter:blur(20px) saturate(200%);
   -webkit-backdrop-filter:blur(20px) saturate(200%);
   border-bottom:1px solid rgba(27,79,190,0.09);
-  transition:top 300ms var(--ease-out), box-shadow 300ms ease, background 300ms ease;
-}
-nav.scrolled {
   box-shadow: 0 4px 32px rgba(27,79,190,0.10), 0 1px 4px rgba(27,79,190,0.06);
-  background:rgba(255,255,255,0.88);
 }
 .nav-logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none}
 .nav-logo-mark {
@@ -154,13 +154,15 @@ nav.scrolled {
   box-shadow:0 2px 8px rgba(27,79,190,0.35),0 1px 3px rgba(27,79,190,0.20);
 }
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.1}
-.nav-logo-name{font-family:var(--font-display);font-weight:600;font-size:14.5px;color:var(--text-primary);letter-spacing:-0.025em}
-.nav-logo-sub{font-size:10.5px;color:var(--text-muted);font-weight:500;letter-spacing:.09em;text-transform:uppercase}
+.nav-logo-name{font-family:var(--font-display);font-weight:600;font-size:14.5px;color:#fff;letter-spacing:-0.025em;transition:color 300ms ease}
+.nav-logo-sub{font-size:10.5px;color:rgba(255,255,255,0.65);font-weight:500;letter-spacing:.09em;text-transform:uppercase;transition:color 300ms ease}
+nav.scrolled .nav-logo-name{color:var(--text-primary)}
+nav.scrolled .nav-logo-sub{color:var(--text-muted)}
 .nav-links{display:flex;align-items:center;gap:var(--space-8);list-style:none}
 .nav-links a {
-  font-size:13.5px; font-weight:500; color:var(--text-secondary);
+  font-size:13.5px; font-weight:500; color: rgba(255,255,255,0.90);
   text-decoration:none; position:relative;
-  transition:color 250ms ease;
+  transition:color 300ms ease;
 }
 /* Animated underline with spring */
 .nav-links a::after {
@@ -169,8 +171,11 @@ nav.scrolled {
   transform:scaleX(0); transform-origin:left;
   transition:transform 350ms var(--spring); border-radius:2px;
 }
-.nav-links a:hover{color:var(--brand-primary)}
+.nav-links a:hover{color:#fff}
 .nav-links a:hover::after{transform:scaleX(1)}
+/* Once scrolled, flip to dark */
+nav.scrolled .nav-links a { color: var(--text-secondary); }
+nav.scrolled .nav-links a:hover { color: var(--brand-primary); }
 
 /* ═══════════════════════════════════════════════
    BUTTONS — spring physics, physical press states
