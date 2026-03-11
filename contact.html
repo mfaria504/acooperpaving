@@ -204,7 +204,7 @@ nav {
 
 .form-wrap { position: relative; z-index: 1; max-width: 480px; }
 
-/* ── HubSpot form styles — scoped tightly ── */
+/* ── HubSpot form — pre-emptive overrides before HS stylesheet loads ── */
 #hs-form-container fieldset {
   max-width: 100% !important;
   border: 0 !important;
@@ -212,6 +212,43 @@ nav {
   margin: 0 0 4px !important;
 }
 #hs-form-container * { box-sizing: border-box; }
+
+/* Kill HubSpot's default black borders on all inputs */
+#hs-form-container input[type=text],
+#hs-form-container input[type=email],
+#hs-form-container input[type=tel],
+#hs-form-container input[type=number],
+#hs-form-container input[type=phone],
+#hs-form-container textarea,
+#hs-form-container select {
+  border: 1.5px solid rgba(27,79,190,0.14) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  border-radius: 10px !important;
+  background: #F4F7FF !important;
+  color: #080F2E !important;
+}
+#hs-form-container input[type=text]:focus,
+#hs-form-container input[type=email]:focus,
+#hs-form-container input[type=tel]:focus,
+#hs-form-container input[type=number]:focus,
+#hs-form-container textarea:focus,
+#hs-form-container select:focus {
+  border-color: rgba(212,175,106,0.80) !important;
+  box-shadow: 0 0 0 3px rgba(212,175,106,0.20) !important;
+  outline: none !important;
+  background: #fff !important;
+}
+/* Kill any HubSpot wrapper borders */
+#hs-form-container .hs-input,
+#hs-form-container .input {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -310,9 +347,9 @@ window.addEventListener('load', function() {
       var s = document.createElement('style');
       s.textContent = [
         '#hs-form-container label{display:block;font-family:"Switzer",sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}',
-        '#hs-form-container input[type=text],#hs-form-container input[type=email],#hs-form-container input[type=tel],#hs-form-container input[type=number],#hs-form-container textarea,#hs-form-container select{display:block;width:100%;background:#F4F7FF;border:1.5px solid rgba(27,79,190,0.14);border-radius:10px;padding:12px 16px;font-family:"Switzer",sans-serif;font-size:14px;color:#080F2E;outline:none;box-sizing:border-box;transition:border-color 220ms ease,background 220ms ease,box-shadow 220ms ease;-webkit-appearance:none;appearance:none}',
+        '#hs-form-container input[type=text],#hs-form-container input[type=email],#hs-form-container input[type=tel],#hs-form-container input[type=number],#hs-form-container textarea,#hs-form-container select{display:block;width:100%;background:#F4F7FF!important;border:1.5px solid rgba(27,79,190,0.14)!important;border-radius:10px!important;padding:12px 16px;font-family:"Switzer",sans-serif;font-size:14px;color:#080F2E;outline:none!important;box-sizing:border-box;transition:border-color 220ms ease,background 220ms ease,box-shadow 220ms ease;-webkit-appearance:none;appearance:none}',
         '#hs-form-container input::placeholder,#hs-form-container textarea::placeholder{color:#7A8FC4}',
-        '#hs-form-container input:focus,#hs-form-container textarea:focus,#hs-form-container select:focus{border-color:rgba(212,175,106,0.80);background:#fff;box-shadow:0 0 0 3px rgba(212,175,106,0.20);outline:none}',
+        '#hs-form-container input:focus,#hs-form-container textarea:focus,#hs-form-container select:focus{border-color:rgba(212,175,106,0.80)!important;background:#fff!important;box-shadow:0 0 0 3px rgba(212,175,106,0.20)!important;outline:none!important}',
         '#hs-form-container textarea{min-height:90px;resize:vertical}',
         '#hs-form-container fieldset{max-width:100%!important;border:0!important;padding:0!important;margin:0 0 16px!important;display:block!important}',
         '#hs-form-container .hs-form-field{margin-bottom:14px}',
