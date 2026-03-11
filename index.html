@@ -984,10 +984,12 @@ window.addEventListener('scroll', () => {
   const barVisible = bar.style.display !== 'none' && !bar.classList.contains('hidden');
   if (window.scrollY > 40) {
     nav.classList.add('scrolled');
-    if (barVisible) nav.style.top = '0';
+    nav.style.top = '0';
+    nav.style.zIndex = '300'; // above announcement bar
   } else {
     nav.classList.remove('scrolled');
-    if (barVisible) nav.style.top = '40px';
+    nav.style.zIndex = '100';
+    nav.style.top = barVisible ? '40px' : '0';
   }
 }, { passive: true });
 
