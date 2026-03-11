@@ -816,7 +816,11 @@ footer::after{content:'';position:absolute;inset:0;background-image:var(--noise)
   .nav-links{display:none}
   .hero{padding:140px var(--space-5) 56px}
   .scroll-hint{display:none}
-  .hero-trust{flex-wrap:wrap;gap:var(--space-4)}
+  .hero-trust{flex-wrap:nowrap;gap:var(--space-2);padding:var(--space-4) var(--space-4)}
+  .trust-stat{flex:1;min-width:0}
+  .trust-number{font-size:17px}
+  .trust-label{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .trust-divider{height:24px}
   .services-grid{grid-template-columns:1fr}
   .process-steps{grid-template-columns:1fr 1fr}
   .process-steps::before{display:none}
