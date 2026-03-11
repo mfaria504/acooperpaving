@@ -44,6 +44,9 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* Prevent global reset from destroying HubSpot form layout */
+#hs-form-container fieldset{max-width:100%!important;border:none!important;padding:0!important;margin:0 0 4px!important}
+#hs-form-container *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body {
   font-family: var(--font-body);
